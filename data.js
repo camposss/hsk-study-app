@@ -1,30 +1,35 @@
 $(document).ready(function(){
     initiateApp();
-    console.log('we are connected');
   });
-  
-  function initiateApp(){
-    var url= "http://data.hskhsk.com/lists/HSK%20Official%202012%20L2.txt";
-    $.ajax({
+  //url=  http://data.hskhsk.com/lists/HSK%20Official%202012%20L1.txt
+function initiateApp(){
+  handleData();
+    
+}
+var word_list_object = {
+  1: [],
+  2: [],
+  3: [],
+  4: [],
+  5: [],
+  6: [],
+}
+async function handleData(){
+  for(var i=1; i<7; i++){
+    var url= `http://data.hskhsk.com/lists/HSK%20Official%202012%20L${i}.txt`;
+    const response  =await $.ajax({
       url: url,
       dataType: "text",
       method: "get",
       success: function(data){
         data= data.split(/\r\n|\r|\n/g);
-        handleData(data);
+        console.log('this is i', i);
+        for(var j=0; j<data.length; j++){
+          word_list_object[i].push(data[j]);
+          // temp_arr.push(data[i]);
+        }
+        console.log(word_list_object);
       }
     })
-      
   }
-  function handleData(data){
-    var hsk2list= [];
-    for(var i=0; i<data.length; i++){
-      console.log(data[i]);
-      hsk2list.push(data[i]);
-      var li= $('<li>').text(data[i]);
-      $('.word-list').append(li);
-      
-    }
-    console.log(hsk2list);
-
-  }
+}

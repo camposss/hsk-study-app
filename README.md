@@ -8,4 +8,4 @@
 - Javascript
 - jQuery
 - PHP
--MySQL
+- MySQL
