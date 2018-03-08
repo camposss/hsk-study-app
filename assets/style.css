@@ -12,12 +12,20 @@ body{
     height: 100vh;
     width: 100vw;
 }
+.main-title-container{
+    margin: auto;
+    text-align: center;
+}
+.main-title-container>h1{
+    margin: auto;
+}
 .list-container{
     margin:auto;
     height: 50%;
     width: 50%;
     border: 1px solid black;
-    transform: translateY(50%);
+    transform: translateY(35%);
+    display: none;
 }
 .header-div{
     border-bottom: 1px solid black;

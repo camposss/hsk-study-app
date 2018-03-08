@@ -6,6 +6,7 @@ function initiateApp(){
   handleData();
   // $('.level').click(chooseLevel);
   makeButtons();
+  $('.list-container').fadeIn('slow');
 }
 var word_list_object = {
   1: [],
