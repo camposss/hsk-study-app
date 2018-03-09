@@ -53,11 +53,14 @@ function chooseLevel(e){
   $('.character').append(word_list_object[index][randomNumber]);
   // var hskCategory= $("<p>").addClass('hsk-category').text('HSK'+ index);
   $('footer').text('HSK' +index);
+  pronounceCharacter();
+
+}
+function pronounceCharacter(){
   var character= $('.character').text();
   console.log(character);
   var msg = new SpeechSynthesisUtterance(character);
   msg.lang= 'zh-cmn';
   window.speechSynthesis.speak(msg);
   console.log(msg);
-  
 }
