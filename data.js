@@ -51,8 +51,13 @@ function chooseLevel(e){
   var index= e.target.attributes.index.nodeValue;
   var randomNumber= Math.floor(Math.random()*word_list_object[index].length+1);
   $('.character').append(word_list_object[index][randomNumber]);
-  var hskCategory= $("<p>").addClass('hsk-category').text('HSK'+ index);
-  $('.character').append(hskCategory);
-  
+  // var hskCategory= $("<p>").addClass('hsk-category').text('HSK'+ index);
+  $('footer').text('HSK' +index);
+  var character= $('.character').text();
+  console.log(character);
+  var msg = new SpeechSynthesisUtterance(character);
+  msg.lang= 'zh-cmn';
+  window.speechSynthesis.speak(msg);
+  console.log(msg);
   
 }
