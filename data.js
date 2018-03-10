@@ -7,6 +7,7 @@ function initiateApp(){
   // $('.level').click(chooseLevel);
   makeButtons();
   $('.list-container').fadeIn('slow');
+  $('.character').on('click',()=>pronounceCharacter());
 }
 var word_list_object = {
   1: [],

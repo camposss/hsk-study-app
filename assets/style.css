@@ -54,10 +54,13 @@ body{
     text-align: center;
     font-size: 1.5rem;
 }
-.character-container > p > .hsk-category{
+.character-container > p:hover{
+    cursor: pointer;
+}
+/* .character-container > p > .hsk-category{
     margin: 0;
     font-size: 1.25rem;
-}
+} */
 ul.button-list{
     width: 100%;
     padding-left: 0;
