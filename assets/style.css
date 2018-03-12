@@ -19,7 +19,7 @@ body{
 .main-title-container>h1{
     margin: auto;
 }
-.list-container{
+.list-container, .about-container{
     margin:auto;
     height: 50%;
     width: 50%;
@@ -77,6 +77,13 @@ button.level{
     border: 1px solid black;
 }
 footer{
+    text-align: center;
+}
+/* About page */
+.about-container{
+    padding:10px;
+}
+.good-luck-p{
     text-align: center;
 }
 
