@@ -79,3 +79,24 @@ button.level{
 footer{
     text-align: center;
 }
+
+/* Media Queries for Mobile */
+
+@media only screen and (max-width: 600px) {
+    .list-container{
+        margin: auto;
+        height: 60%;
+        width: 75%;
+        border: 1px solid black;
+        transform: translateY(15%);
+    }
+    .character-container{
+        width: 75%;
+    }
+    .flashcard{
+        width: 75%;
+    }
+    .character-container > p {
+        font-size: 2rem;
+    }
+} 
