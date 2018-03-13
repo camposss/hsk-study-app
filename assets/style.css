@@ -24,7 +24,7 @@ body{
     height: 50%;
     width: 50%;
     border: 1px solid black;
-    transform: translateY(35%);
+    transform: translateY(25%);
     display: none;
 }
 .header-div{
