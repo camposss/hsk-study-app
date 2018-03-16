@@ -30,18 +30,15 @@ async function handleData(){
         for(var j=0; j<data.length; j++){
           word_list_object[i].push(data[j]);
         }
-        // console.log(word_list_object);
       }
     })
   }
 }
 function makeButtons(){
-  console.log('we are making butons');
   var ul= $('<ul>').addClass('button-list');
   for (var i=1; i<7; i++){
     var button =$('<button>').addClass('level').text('HSK'+i).attr('index', i).on('click', (e)=>chooseLevel(e));
     ul.append(button);
-    // console.log(ul);
   }
   $('.footer-div').append(ul);
 
@@ -60,9 +57,7 @@ function chooseLevel(e){
 }
 function pronounceCharacter(){
   var character= $('.character').text();
-  console.log(character);
   var msg = new SpeechSynthesisUtterance(character);
   msg.lang= 'zh-cmn';
   window.speechSynthesis.speak(msg);
-  console.log(msg);
 }
