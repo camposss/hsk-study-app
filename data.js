@@ -10,7 +10,7 @@ function initiateApp(){
   $('.about-container').fadeIn('slow');
   $('.character').on('click',()=>pronounceCharacter());
 }
-var word_list_object = {
+const word_list_object = {
   1: [],
   2: [],
   3: [],
@@ -19,15 +19,15 @@ var word_list_object = {
   6: [],
 }
 async function handleData(){
-  for(var i=1; i<7; i++){
-    var url= `http://data.hskhsk.com/lists/HSK%20Official%202012%20L${i}.txt`;
+  for(let i=1; i<7; i++){
+    let url= `http://data.hskhsk.com/lists/HSK%20Official%202012%20L${i}.txt`;
     const response  =await $.ajax({
       url: url,
       dataType: "text",
       method: "get",
       success: function(data){
         data= data.split(/\r\n|\r|\n/g);
-        for(var j=0; j<data.length; j++){
+        for(let j=0; j<data.length; j++){
           word_list_object[i].push(data[j]);
         }
       }
@@ -35,9 +35,9 @@ async function handleData(){
   }
 }
 function makeButtons(){
-  var ul= $('<ul>').addClass('button-list');
-  for (var i=1; i<7; i++){
-    var button =$('<button>').addClass('level').text('HSK'+i).attr('index', i).on('click', (e)=>chooseLevel(e));
+  let ul= $('<ul>').addClass('button-list');
+  for (let i=1; i<7; i++){
+    let button =$('<button>').addClass('level').text('HSK'+i).attr('index', i).on('click', (e)=>chooseLevel(e));
     ul.append(button);
   }
   $('.footer-div').append(ul);
@@ -46,18 +46,16 @@ function makeButtons(){
 }
 function chooseLevel(e){
   $('.character').empty();
-  // var index= $('.level').attr('index');
-  var index= e.target.attributes.index.nodeValue;
-  var randomNumber= Math.floor(Math.random()*word_list_object[index].length+1);
+  let index= e.target.attributes.index.nodeValue;
+  let randomNumber= Math.floor(Math.random()*word_list_object[index].length+1);
   $('.character').append(word_list_object[index][randomNumber]);
-  // var hskCategory= $("<p>").addClass('hsk-category').text('HSK'+ index);
   $('footer').text('HSK' +index);
   pronounceCharacter();
 
 }
 function pronounceCharacter(){
-  var character= $('.character').text();
-  var msg = new SpeechSynthesisUtterance(character);
+  let character= $('.character').text();
+  let msg = new SpeechSynthesisUtterance(character);
   msg.lang= 'zh-cmn';
   window.speechSynthesis.speak(msg);
 }
