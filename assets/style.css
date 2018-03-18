@@ -47,7 +47,7 @@ body{
     width: 50%;
     height: 50%;
     transform: translateY(50%);
-    background-color: red; 
+    background-color:#d46060; 
     text-justify: center;
 }
 .character-container > p{
